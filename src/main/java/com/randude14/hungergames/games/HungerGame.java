@@ -488,6 +488,7 @@ public class HungerGame implements Comparable<HungerGame>, Runnable, Game {
 			GameEndEvent event = new GameEndEvent(this, false);
 			Bukkit.getPluginManager().callEvent(event);
 		}
+		Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "tc off hg_start Hungergames");
 		clear();
 		ResetHandler.resetChanges(this);
 		return null;
@@ -670,6 +671,7 @@ public class HungerGame implements Comparable<HungerGame>, Runnable, Game {
 			Player p = Bukkit.getPlayer(playerName);
 			if (p == null) continue;
 			GameManager.INSTANCE.unfreezePlayer(p);
+			Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "tc on hg_start Hungergames");
 		}
 
 	}
